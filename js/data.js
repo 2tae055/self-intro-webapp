@@ -1,12 +1,12 @@
-// ✏️ 내 정보는 이 파일만 고치면 사이트 전체에 반영됩니다. (○○○ 부분을 바꾸세요)
+// ✏️ 내 정보는 이 파일만 고치면 사이트 전체에 반영됩니다.
 window.PROFILE = {
-  name: '○○○',
+  name: '이태경',
   role: 'Cloud & Database Developer',
   headline: '데이터로 서비스를 만드는 개발자',
   summary: '클라우드와 데이터베이스를 공부하며, 직접 설계하고 AWS에 배포까지 해 보는 개발자를 목표로 하고 있습니다.',
   facts: [
-    ['학교', '○○대학교'],
-    ['전공', '○○학과 (○학년)'],
+    ['학교', '한양대학교'],
+    ['전공', '컴퓨터학부'],
     ['관심 분야', '클라우드 · 데이터베이스 · 백엔드']
   ],
   about: [
@@ -18,12 +18,12 @@ window.PROFILE = {
   timeline: [
     ['2026', '클라우드 데이터베이스 기초 수강 · 자기소개 웹앱 개발'],
     ['2025', '데이터베이스 · 자료구조 수강'],
-    ['20○○', '○○대학교 ○○학과 입학']
+    ['재학', '한양대학교 컴퓨터학부']
   ],
-  email: 'your.email@example.com',
+  email: '2tae055@hanyang.ac.kr',
   links: [
-    ['GitHub', 'https://github.com/'],
-    ['기술 블로그', 'https://velog.io/']
+    ['GitHub', 'https://github.com/2tae055'],
+    ['이 사이트 소스', 'https://github.com/2tae055/self-intro-webapp']
   ]
 };
 
@@ -35,7 +35,7 @@ window.SAMPLE_PROJECTS = [
     stack: ['HTML/CSS', 'JavaScript', 'S3', 'CloudFront', 'AppSync', 'DynamoDB'],
     description: '원페이지 자기소개 사이트를 서버리스로 구축. S3 정적 호스팅을 CloudFront(OAC)로만 노출하고, 방명록·프로젝트 데이터는 AppSync GraphQL API와 DynamoDB로 관리.',
     result: '서버 없이 HTTPS 배포와 데이터 저장을 구현했고, 정적 호스팅과 API 계층을 분리하는 구조를 익혔습니다.',
-    githubUrl: 'https://github.com/', thumbnail: ''
+    githubUrl: 'https://github.com/2tae055/self-intro-webapp', thumbnail: ''
   },
   {
     id: 'p2', title: '동네 도서관 대출 DB', period: '2026.05 ~ 2026.06', startDate: '2026-05-01',
