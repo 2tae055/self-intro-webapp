@@ -1,0 +1,46 @@
+# AppSync GraphQL 스키마 (기획서 4장 · 다음 주차에 사용)
+# 데이터 소스: DynamoDB Projects(PK id), Guestbook(PK id, GSI byCreatedAt: type + createdAt)
+
+type Project {
+  id: ID!
+  title: String!
+  period: String
+  startDate: String
+  role: String
+  stack: [String]
+  description: String
+  result: String
+  githubUrl: String
+  thumbnail: String
+}
+
+type ProjectConnection {
+  items: [Project]
+}
+
+type GuestbookEntry {
+  id: ID!
+  nickname: String!
+  message: String!
+  createdAt: AWSDateTime!
+}
+
+type GuestbookConnection {
+  items: [GuestbookEntry]
+  nextToken: String
+}
+
+type Query {
+  listProjects: ProjectConnection           # Scan (최대 6개, 정렬은 프론트)
+  getProject(id: ID!): Project              # GetItem
+  listGuestbook(limit: Int, nextToken: String): GuestbookConnection  # GSI Query, 최신순
+}
+
+type Mutation {
+  createGuestbook(nickname: String!, message: String!): GuestbookEntry  # PutItem
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

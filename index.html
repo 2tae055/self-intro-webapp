@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>자기소개 | ○○○</title>
+  <meta name="description" content="클라우드와 데이터베이스를 공부하는 개발자 ○○○의 자기소개 웹앱">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 상단 고정 내비게이션 -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#home" data-bind="name">○○○</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">소개</a></li>
+          <li><a href="#projects">프로젝트</a></li>
+          <li><a href="#contact">연락처</a></li>
+          <li><a href="#guestbook">방명록</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- S01 Home -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow" data-bind="role">Cloud &amp; Database Developer</p>
+          <h1><span data-bind="headline">데이터로 서비스를 만드는 개발자</span><br><strong data-bind="name">○○○</strong>입니다</h1>
+          <p class="lead" data-bind="summary">직접 설계하고 AWS에 배포까지 해 보는 개발자를 목표로 공부하고 있습니다.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
+            <a class="btn btn-ghost" href="#contact">연락하기</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/profile.svg" alt="프로필 사진" id="profile-photo" width="260" height="260">
+        </div>
+      </div>
+    </section>
+
+    <!-- S02 소개 -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title"><span>01</span>소개</h2>
+        <div class="about-grid">
+          <div class="card about-card">
+            <h3>About me</h3>
+            <dl class="facts" id="facts"></dl>
+            <div id="about-text"></div>
+          </div>
+          <div class="card">
+            <h3>기술 스택</h3>
+            <ul class="badges" id="stack"></ul>
+            <h3 class="mt">학업 · 활동</h3>
+            <ol class="timeline" id="timeline"></ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S03 프로젝트 -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title"><span>02</span>프로젝트</h2>
+        <p class="section-desc">카드의 “자세히 보기”를 누르면 담당 역할과 결과를 볼 수 있어요.</p>
+        <div class="project-grid" id="project-grid" aria-live="polite">
+          <p class="muted">프로젝트를 불러오는 중…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- S04 연락처 -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title"><span>03</span>연락처</h2>
+        <div class="card contact-card">
+          <p class="contact-msg">협업 제안이나 궁금한 점이 있다면 편하게 연락 주세요.</p>
+          <div class="contact-row">
+            <a class="contact-item" id="email-link" href="#">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m3 6 9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+              <span id="email-text">email</span>
+            </a>
+            <button class="btn btn-ghost btn-sm" id="copy-email" type="button">주소 복사</button>
+          </div>
+          <div class="contact-links" id="contact-links"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- S05 방명록 -->
+    <section id="guestbook" class="section section-alt">
+      <div class="container narrow">
+        <h2 class="section-title"><span>04</span>방명록</h2>
+        <form class="card gb-form" id="gb-form" novalidate>
+          <div class="field">
+            <label for="gb-nickname">닉네임</label>
+            <input id="gb-nickname" name="nickname" maxlength="10" autocomplete="nickname" placeholder="1~10자">
+            <p class="error" id="err-nickname"></p>
+          </div>
+          <div class="field">
+            <label for="gb-message">메시지</label>
+            <textarea id="gb-message" name="message" maxlength="200" rows="3" placeholder="응원이나 피드백 한 줄을 남겨 주세요 (1~200자)"></textarea>
+            <div class="field-foot">
+              <p class="error" id="err-message"></p>
+              <span class="counter"><span id="gb-count">0</span> / 200</span>
+            </div>
+          </div>
+          <div class="form-foot">
+            <p class="form-status" id="gb-status" role="status"></p>
+            <button class="btn btn-primary" id="gb-submit" type="submit">등록</button>
+          </div>
+        </form>
+
+        <ul class="gb-list" id="gb-list"></ul>
+        <p class="muted center" id="gb-empty" hidden>첫 방명록을 남겨 주세요!</p>
+        <div class="center"><button class="btn btn-ghost" id="gb-more" type="button" hidden>더 보기</button></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> <span data-bind="name">○○○</span> · Hosted on AWS S3 + CloudFront</p>
+  </footer>
+
+  <!-- 프로젝트 상세 모달 -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" type="button" aria-label="닫기" data-close>×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
